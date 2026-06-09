@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] private string mainMenuSceneName = "MainMenu";
+
     public GameObject pausePanel;
     public GameObject settingsPanel;
 
@@ -25,7 +27,10 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        pausePanel.SetActive(true);
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(true);
+        }
 
         Time.timeScale = 0f;
 
@@ -34,8 +39,15 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        pausePanel.SetActive(false);
-        settingsPanel.SetActive(false);
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
+
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+        }
 
         Time.timeScale = 1f;
 
@@ -48,14 +60,28 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        pausePanel.SetActive(false);
-        settingsPanel.SetActive(true);
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
+
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+        }
     }
 
     public void CloseSettings()
     {
-        settingsPanel.SetActive(false);
-        pausePanel.SetActive(true);
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+        }
+
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(true);
+        }
     }
 
     // ====================
@@ -66,6 +92,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }

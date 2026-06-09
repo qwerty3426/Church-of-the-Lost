@@ -9,27 +9,46 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
-        volumeSlider.value = AudioListener.volume;
-        fullscreenToggle.isOn = Screen.fullScreen;
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = AudioListener.volume;
+        }
+
+        if (fullscreenToggle != null)
+        {
+            fullscreenToggle.isOn = Screen.fullScreen;
+        }
     }
 
     public void OpenSettings()
     {
-        settingsPanel.SetActive(true);
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+        }
     }
 
     public void CloseSettings()
     {
-        settingsPanel.SetActive(false);
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+        }
     }
 
     public void ChangeVolume()
     {
-        AudioListener.volume = volumeSlider.value;
+        if (volumeSlider != null)
+        {
+            AudioListener.volume = volumeSlider.value;
+        }
     }
 
     public void ToggleFullscreen()
     {
-        Screen.fullScreen = fullscreenToggle.isOn;
+        if (fullscreenToggle != null)
+        {
+            Screen.fullScreen = fullscreenToggle.isOn;
+        }
     }
 }

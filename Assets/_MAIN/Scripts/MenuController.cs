@@ -3,10 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] private string gameSceneName = "VisualNovel";
+
     // Ця функція просто миттєво вантажить сцену
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(gameSceneName);
     }
 
     // Метод для кнопки "ВИХІД"

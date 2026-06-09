@@ -1,20 +1,31 @@
-Library/
-Temp/
-Logs/
-Build/
-build/
-Obj/
-obj/
-UserSettings/
+# ========== UNITY ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
 
-*.csproj.user
-*.suo
-*.user
-*.userprefs
+# Unity generated
+*.csproj
+*.sln
+*.slnx
+*.unityproj
 *.pidb
 *.booproj
-*.VC.db
-*.VC.VC.opendb
+*.svd
+*.pdb
+*.opendb
 
+# Rider / VS / VSCode
 .vs/
+.vscode/
 .idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Unity cache
+*.cache

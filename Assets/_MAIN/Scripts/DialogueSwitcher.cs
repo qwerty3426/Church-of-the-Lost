@@ -49,6 +49,9 @@ public class DialogueSwitcher : MonoBehaviour
     [Header("Next Scene")]
     public string nextSceneName = "VisualNovel2";
 
+    [Header("Ending Scene")]
+    public string endingSceneName = "EndingScene";
+
     [Header("Settings")]
     public float typingSpeed = 0.05f;
     public float fadeSpeed = 1.5f;
@@ -335,11 +338,23 @@ public class DialogueSwitcher : MonoBehaviour
 
     public void GoToNextScene()
     {
-        SceneManager.LoadScene(nextSceneName);
+        LoadSceneSafely(nextSceneName);
     }
 
     public void ShowEnding()
     {
-        SceneManager.LoadScene("EndingScene");
+        LoadSceneSafely(endingSceneName);
+    }
+
+    void LoadSceneSafely(string sceneName)
+    {
+        if (string.IsNullOrWhiteSpace(sceneName))
+        {
+            Debug.LogWarning("Scene name is not configured.");
+            return;
+        }
+
+        isTransitioning = true;
+        SceneManager.LoadScene(sceneName);
     }
 }
